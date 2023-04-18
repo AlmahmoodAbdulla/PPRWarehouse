@@ -1,0 +1,48 @@
+{
+  "name": "pprwarehouse",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^2.33.0",
+    "@azure/msal-react": "^1.5.3",
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@euxdt/grid-core": "^0.0.33",
+    "@euxdt/grid-export": "^0.0.33",
+    "@euxdt/grid-react": "^0.0.33",
+    "@react-pdf/renderer": "^3.1.9",
+    "ag-grid-community": "^29.2.0",
+    "ag-grid-react": "^29.2.0",
+    "axios": "^1.3.4",
+    "bootstrap": "^5.2.3",
+    "chakra-dayzed-datepicker": "^0.2.7",
+    "chakra-ui-autocomplete": "^1.4.5",
+    "chakra-ui-steps": "^2.0.4",
+    "date-fns": "^2.29.3",
+    "dayzed": "^3.2.3",
+    "framer-motion": "^10.1.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-bootstrap-typeahead": "^6.0.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-loading-icons": "^1.1.0",
+    "react-pdf": "^6.2.2",
+    "react-router-dom": "^6.8.2",
+    "recharts": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "vite": "^4.1.0"
+  }
+}
