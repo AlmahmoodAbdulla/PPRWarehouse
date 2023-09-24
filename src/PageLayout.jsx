@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../src/components/NavBar";
-import Footer from "../src/components/Footer";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import { Grid, GridItem } from "@chakra-ui/react";
 export default function PageLayout({ children }) {
   const headerHeight = "10vh";

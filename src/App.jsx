@@ -8,7 +8,7 @@ import Inspection from "./components/Inspection";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
-import { loginRequest } from "../src/auth/msalConfig";
+import { loginRequest } from "./auth/msalConfig";
 import {Button} from '@chakra-ui/react';
 import InspectionSteps from './components/InspectionSteps';
 import RectifyViolation from "./components/RectifyViolation";
@@ -30,7 +30,7 @@ function App({ msalInstance }) {
 
 const Pages = () => {
   const [accessToken, setAccessToken] = useState(null);
-  const [apiURL, setApiURL] = useState("http://10.193.147.55:8083/");
+  const [apiURL, setApiURL] = useState("http://10.193.147.55:8123/");
   const { instance, accounts, inProgress } = useMsal();
 
 
@@ -55,15 +55,17 @@ const Pages = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
+      <Route path="*" element={<Home />} />
       <Route exact element={<ProtectedRoute />}>
-        <Route path="/stats" element={<Statistics apiURL={apiURL} RequestAccessToken={RequestAccessToken} accessToken={accessToken}/>} />
+        <Route path="stats" element={<Statistics apiURL={apiURL} RequestAccessToken={RequestAccessToken} accessToken={accessToken}/>} />
       </Route>
       <Route exact element={<ProtectedRoute />}>
-        <Route path="/inspection" element={<InspectionSteps apiURL={apiURL} RequestAccessToken={RequestAccessToken} accessToken={accessToken}/>} />
+        <Route path="inspection" element={<InspectionSteps apiURL={apiURL} RequestAccessToken={RequestAccessToken} accessToken={accessToken}/>} />
       </Route>
       <Route exact element={<ProtectedRoute />}>
-        <Route path="/rectify" element={<RectifyViolation apiURL={apiURL} RequestAccessToken={RequestAccessToken} accessToken={accessToken}/>} />
+        <Route path="rectify" element={<RectifyViolation apiURL={apiURL} RequestAccessToken={RequestAccessToken} accessToken={accessToken}/>} />
       </Route>
+      
     </Routes>
   );
 };

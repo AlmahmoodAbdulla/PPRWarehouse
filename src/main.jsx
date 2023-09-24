@@ -15,12 +15,15 @@ const theme = extendTheme({
 });
 const pca = new PublicClientApplication(msalConfig);
 
+
 pca.addEventCallback((event) => {
   if (event.eventType === EventType.LOGIN_SUCCESS) {
     console.log(event);
     pca.setActiveAccount(event.payload.account);
   }
 });
+
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ChakraProvider theme={theme}>

@@ -30,31 +30,40 @@ export default function DataGrid(props) {
       field: "inspection_id",
       filter: true,
       resizable: true,
+      autoSizeColumn: true
     },
     {
       headerName: "Violation",
       field: "violation",
       filter: true,
       resizable: true,
+      autoSizeColumn: true
     },
     {
       headerName: "Pharmacy Name",
       field: "pharmacy_name",
       filter: true,
       resizable: true,
+      autoSizeColumn: true,
+      width: 450
     },
     {
       headerName: "Created By",
       field: "created_by",
       filter: true,
       resizable: true,
+      autoSizeColumn: true
     },
-    { headerName: "Year", field: "year", filter: true, resizable: true },
-    { headerName: "Month", field: "month", filter: true, resizable: true },
-    { headerName: "Date", field: "date", filter: true, resizable: true },
-    { headerName: "License_Number", field: "license_number", hide: true, },
+    { headerName: "Year", field: "year", filter: true, resizable: true, autoSizeColumn: true  },
+    { headerName: "Month", field: "month", filter: true, resizable: true, autoSizeColumn: true },
+    { headerName: "Date", field: "date", filter: true, resizable: true, autoSizeColumn: true,  valueFormatter: (params) => {
+      const dateStr = params.value;
+      const formattedDate = new Date(dateStr).toISOString().split('T')[0];
+      return formattedDate;
+    } },
+    { headerName: "License_Number", field: "license_number", hide: true, autoSizeColumn: true },
     {
-      headerName: "Print PDF",
+      headerName: "View/Print PDF",
       field: "print",
       cellRenderer: (params) => {
         return (
@@ -63,13 +72,15 @@ export default function DataGrid(props) {
             size="sm"
             onClick={() => viewPDF(params.data)}
           >
-            Print
+            View/Print
           </Button>
         );
       },
+      autoSizeColumn: true
     },
   ];
 
+  
   function viewPDF(data) {
     console.log(props);
     setPdfData(data);
@@ -86,14 +97,14 @@ export default function DataGrid(props) {
           <ModalCloseButton />
           <ModalBody>
             <PDFViewer style={{ width: "100%", height: "100%" }}>
-              <InspectionReport pdfData={pdfData} apiURL={props.apiURL}/>
+              <InspectionReport pdfData={pdfData} apiURL={props.apiURL} accessToken={props.accessToken} RequestAccessToken={props.RequestAccessToken}/>
             </PDFViewer>
           </ModalBody>
         </ModalContent>
       </Modal>
       <div
         className="ag-theme-alpine"
-        style={{ height: "75vh", width: "100%" }}
+        style={{ height: "75vh"}}
       >
         <AgGridReact
           rowData={props.data}

@@ -11,7 +11,13 @@ export default function SignInButton() {
     navigate(0);
   };
   return (
-    <Button as={"a"} fontSize={"sm"} fontWeight={400} onClick={handleSignIn}>
+    <Button
+      as={"a"}
+      fontSize={"sm"}
+      fontWeight={400}
+      onClick={handleSignIn}
+      color={"black"}
+    >
       Sign In
     </Button>
   );

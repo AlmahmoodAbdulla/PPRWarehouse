@@ -13,8 +13,8 @@ export default function SignOutButton() {
       display={{ base: "inline-flex", md: "inline-flex" }}
       fontSize={"sm"}
       fontWeight={600}
-      color={"white"}
-      bg={"#3091b9"}
+      color={"black"}
+      bg={"#ffffff"}
       href={"#"}
       _hover={{
         bg: "#73ac41",

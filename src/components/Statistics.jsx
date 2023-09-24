@@ -135,7 +135,7 @@ const Statistics = (props) => {
           <DrawerCloseButton />
           <DrawerHeader>View Inspections</DrawerHeader>
           <DrawerBody>
-            <DataGrid data={allInspections} apiURL={props.apiURL} />
+            <DataGrid data={allInspections} apiURL={props.apiURL} accessToken={props.accessToken} RequestAccessToken={props.RequestAccessToken}/>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
